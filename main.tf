@@ -41,6 +41,12 @@ resource "google_cloud_identity_group" "group" {
 
   initial_group_config = var.initial_group_config
 
+  lifecycle {
+    ignore_changes = [
+      initial_group_config
+    ]
+  }
+
   group_key {
     id = var.id
   }
